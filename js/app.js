@@ -1,3 +1,5 @@
+import swal from 'sweetalert';
+
 document.addEventListener('DOMContentLoaded', function(){
 
 
@@ -35,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function(){
         this.board[this.index(this.coin.x, this.coin.y)].classList.add('coin');
       }
     startGame(){
+      this.showCoin();
       const self = this;
       this.idSetInterval = setInterval(function(){
         self.moveFurry();
@@ -56,8 +59,6 @@ document.addEventListener('DOMContentLoaded', function(){
         this.showFurry();
         this.checkCoinCollision();
       }
-
-
     }
     hideVisibleFurry(){
       let visFurry = document.querySelector('.furry');
@@ -96,28 +97,21 @@ document.addEventListener('DOMContentLoaded', function(){
     gameOver(){
         clearInterval(this.idSetInterval);
         this.hideVisibleFurry();
+        swal('game over!! you scored ' + this.score + ' points!');
     }
 
   };
 
-  document.addEventListener('keydown', function(event){
-      game.turnFurry(event);
-  });
+  const start = document.querySelector('#start');
+  start.addEventListener('click', startGame);
 
-  const game = new Game();
-  game.showFurry();
-  game.showCoin();
-  game.startGame();
-
-
-
-
-
-  console.log('gejm', game );
-
-
-
-
+  function startGame(event) {
+    document.addEventListener('keydown', function(event){
+        game.turnFurry(event);
+    });
+    const game = new Game();
+    game.startGame();
+  };
 
 
 
