@@ -17,8 +17,8 @@ section#score {
   margin: 1em auto;
 }
 
-#board  > div {    
-  border: 1px solid black;
+#board  > div {
+  border: 1px solid #44aec6;
   float: left;
   width: 64px;
   height: 64px;
@@ -27,7 +27,7 @@ section#score {
 
 section#score div {
   width: 10em;
-  height: 3em;
+  height: 4em;
   text-align: center;
   padding: 0.5em;
   background-color: rgba(211,211,211, 0.75);
