@@ -26,22 +26,49 @@ document.addEventListener('DOMContentLoaded', function(){
       };
     }
     showFurry() {
-      this.board[ this.index(this.furry.x,this.furry.y) ].classList.add('furry');
+      if (this.furry.x>0) {
+        this.board[ this.index(this.furry.x,this.furry.y) ].classList.add('furry');
+        this.hideVisibleFurry();
+      } else {
+        this.board[ this.index(this.furry.x,this.furry.y) ].classList.add('furry');
+      }
+
     }
     showCoin(){
-      this.board[this.index(this.coin.x, this.coin.y)].classList.add('coin');
+      if (this.furry.x>0) {
+        this.hideVisibleFurry();
+        this.board[this.index(this.coin.x, this.coin.y)].classList.add('coin');
+      } else {
+        this.board[this.index(this.coin.x, this.coin.y)].classList.add('coin');
+      }
     }
     startGame(){
+      const self = this;
       this.idSetInterval = setInterval(function(){
-        console.log('hurra z setIntervala');
+        self.moveFurry();
       }, 250);
-    };
+    }
+    moveFurry(){
+      if(this.furry.direction === 'right') {
+          this.furry.x = this.furry.x + 1;
+      } else if (this.furry.direction === 'left'){
+        this.furry.x = this.furry.x -1;
+      } else if (this.furry.direction === 'up') {
+        this.furry.y = this.furry.y -1;
+      } else {
+        this.furry.y = this.furry.y +1;
+      }this.showFurry();
+    }
+    hideVisibleFurry(){
+      const visFurry = document.querySelector('.furry');
+      visFurry.classList.remove('furry');
+    }
   };
 
   const game = new Game();
   game.showFurry();
   game.showCoin();
-  // game.startGame();
+  game.startGame();
 
   console.log('gejm', game );
 
