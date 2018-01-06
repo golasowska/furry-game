@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
 
+
   class Furry {
     constructor() {
       this.x = 0;
@@ -25,23 +26,14 @@ document.addEventListener('DOMContentLoaded', function(){
         return x + (y * 10);
       };
     }
-    showFurry() {
-      if (this.furry.x>0) {
-        this.board[ this.index(this.furry.x,this.furry.y) ].classList.add('furry');
-        this.hideVisibleFurry();
-      } else {
-        this.board[ this.index(this.furry.x,this.furry.y) ].classList.add('furry');
-      }
 
+    showFurry() {
+        this.hideVisibleFurry();
+        this.board[ this.index(this.furry.x,this.furry.y) ].classList.add('furry');
     }
     showCoin(){
-      if (this.furry.x>0) {
-        this.hideVisibleFurry();
-        this.board[this.index(this.coin.x, this.coin.y)].classList.add('coin');
-      } else {
         this.board[this.index(this.coin.x, this.coin.y)].classList.add('coin');
       }
-    }
     startGame(){
       const self = this;
       this.idSetInterval = setInterval(function(){
@@ -60,15 +52,42 @@ document.addEventListener('DOMContentLoaded', function(){
       }this.showFurry();
     }
     hideVisibleFurry(){
-      const visFurry = document.querySelector('.furry');
-      visFurry.classList.remove('furry');
+      let visFurry = document.querySelector('.furry');
+      if (visFurry!= null) {
+        visFurry.classList.remove('furry');
+      }
+    }
+
+    turnFurry(event){
+      switch (event.which) {
+        case 37:
+          this.furry.direction = 'left';
+          break;
+        case 38:
+          this.furry.direction = 'up';
+          break;
+        case 39:
+          this.furry.direction = 'right';
+          break;
+        case 40:
+          this.furry.direction = 'down';
+          break;
+        }
     }
   };
+
+  document.addEventListener('keydown', function(event){
+      game.turnFurry(event);
+  });
 
   const game = new Game();
   game.showFurry();
   game.showCoin();
   game.startGame();
+
+
+
+
 
   console.log('gejm', game );
 
