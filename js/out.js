@@ -704,6 +704,8 @@ document.addEventListener('DOMContentLoaded', function(){
     gameOver(){
         clearInterval(this.idSetInterval);
         this.hideVisibleFurry();
+        let visibleCoin = document.querySelector('.coin');
+        visibleCoin.classList.remove('coin');
         __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()('game over!! you scored ' + this.score + ' points!');
     }
 

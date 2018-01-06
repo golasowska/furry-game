@@ -97,6 +97,8 @@ document.addEventListener('DOMContentLoaded', function(){
     gameOver(){
         clearInterval(this.idSetInterval);
         this.hideVisibleFurry();
+        let visibleCoin = document.querySelector('.coin');
+        visibleCoin.classList.remove('coin');
         swal('game over!! you scored ' + this.score + ' points!');
     }
 
