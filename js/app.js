@@ -4,8 +4,6 @@ const Game = require('./game.js');
 
 document.addEventListener('DOMContentLoaded', function(){
 
-
-
   const start = document.querySelector('#start');
   start.addEventListener('click', startGame);
 
@@ -16,6 +14,5 @@ document.addEventListener('DOMContentLoaded', function(){
     const game = new Game();
     game.startGame();
   };
-
 
 })

@@ -606,12 +606,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_sweetalert__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_sweetalert___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_sweetalert__);
 
-const Game = __webpack_require__(9);
+const Game = __webpack_require__(8);
 
 
 document.addEventListener('DOMContentLoaded', function(){
-
-
 
   const start = document.querySelector('#start');
   start.addEventListener('click', startGame);
@@ -623,7 +621,6 @@ document.addEventListener('DOMContentLoaded', function(){
     const game = new Game();
     game.startGame();
   };
-
 
 })
 
@@ -1047,24 +1044,10 @@ process.umask = function() { return 0; };
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports) {
-
-class Coin {
-  constructor(){
-    this.x = Math.floor(Math.random() * 10);
-    this.y = Math.floor(Math.random() * 10);
-  }
-};
-
-module.exports = Coin;
-
-
-/***/ }),
-/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const Furry = __webpack_require__(10);
-const Coin = __webpack_require__(8);
+const Furry = __webpack_require__(9);
+const Coin = __webpack_require__(10);
 
 class Game {
   constructor(){
@@ -1158,7 +1141,7 @@ module.exports = Game;
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports) {
 
 class Furry {
@@ -1170,6 +1153,20 @@ class Furry {
 };
 
 module.exports = Furry;
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+class Coin {
+  constructor(){
+    this.x = Math.floor(Math.random() * 10);
+    this.y = Math.floor(Math.random() * 10);
+  }
+};
+
+module.exports = Coin;
 
 
 /***/ })
